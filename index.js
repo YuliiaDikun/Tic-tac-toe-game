@@ -70,7 +70,6 @@ if (playerX.length) {
 }
 
 const onBoxElClick = (e) => {
-  console.log(e.target);
   if (e.target.textContent) {
     return;
   }
