@@ -111,13 +111,20 @@ const onBoxElClick = (e) => {
       localStorage.setItem("lastPlayer", "X");
     });
   }
+  if (playerX.length + playerO.length === 9) {
+    setTimeout(() => {
+      resetGame();
+    }, 500);
+  }
 };
 
 function isWiner(arr) {
   return winer.some((el) => el.every((item) => arr.includes(item)));
 }
 function resetGame(selector) {
-  alert(`Player ${selector.innerText.toUpperCase()} Win!`);
+  selector
+    ? alert(`Player ${selector.innerText.toUpperCase()} Win!`)
+    : alert("Try again!");
   setTimeout(() => {
     onResetBtnClick();
     localStorage.clear();
