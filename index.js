@@ -20,7 +20,6 @@ function onformEl(e) {
 }
 const prevPlayer = localStorage.getItem("lastPlayer");
 let player = prevPlayer === "X" ? "O" : "X";
-console.log("next player is ", player);
 let marcUp = "";
 
 const winer = [
