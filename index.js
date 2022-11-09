@@ -20,6 +20,7 @@ function onformEl(e) {
 }
 const prevPlayer = localStorage.getItem("lastPlayer");
 let player = prevPlayer === "X" ? "O" : "X";
+console.log("next player is ", player);
 let marcUp = "";
 
 const winer = [
@@ -93,7 +94,7 @@ const onBoxElClick = (e) => {
         resetGame(first);
       }
       player = "O";
-      localStorage.setItem("lastPlayer", "O");
+      localStorage.setItem("lastPlayer", "X");
     });
   } else {
     first.classList.remove("active");
@@ -106,7 +107,7 @@ const onBoxElClick = (e) => {
         resetGame(second);
       }
       player = "X";
-      localStorage.setItem("lastPlayer", "X");
+      localStorage.setItem("lastPlayer", "O");
     });
   }
   if (playerX.length + playerO.length === 9) {
@@ -131,6 +132,7 @@ function resetGame(selector) {
 }
 
 function onResetBtnClick() {
+  localStorage.clear();
   containerEl.classList.add("hidden");
   formEl.classList.remove("hidden");
   formEl.elements.user1.value = "";
