@@ -40,8 +40,8 @@ p {
 }
 
 .container {
-margin: 0 auto;
-    padding: 0 15px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 .title {
   margin-top: 100px;
@@ -73,22 +73,71 @@ margin: 0 auto;
   background-color: #f1f1f10c;
 }
 
+.players {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
 .users {
   display: flex;
+  font-size: 25px;
+  gap: 25px;
+  font-weight: 500;
+  align-items: center;
 }
 
+.second,
 .first {
-  width: 50px;
-  color: red;
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 50px 13px;
+  outline: 0;
+  border: 1px solid black;  
+  position: relative;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0);
 }
 
-.second {
-  width: 50px;
-  color: red;
+.second::after,
+.first::after {
+  content: "";
+  background-color: #e36a6a;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  border-radius: 5px;
+  height: 100%;
+  top: 7px;
+  left: 7px;
 }
 
 .active {
-  color: green;
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 50px 13px;
+  outline: 0;
+  border: 1px solid black;
+  border-radius: 5px;  
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+}
+.active::after {
+  content: "";
+  background-color: #74ae73;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  border-radius: 5px;
+  height: 100%;
+  top: 7px;
+  left: 7px;
 }
 
 .user-form {
