@@ -1,6 +1,6 @@
 const boxEl = document.querySelector(".content");
 const containerEl = document.querySelector(".game-container");
-const resetBtnEl = document.querySelector(".btn-cross");
+
 const formEl = document.querySelector(".user-form");
 const playersDiv = document.querySelector(".players");
 
@@ -14,11 +14,11 @@ function onformEl(e) {
     user2: formEl.elements.user2.value,
   };
   containerEl.classList.remove("hidden");
-  resetBtnEl.classList.remove("hidden");
   formEl.classList.add("hidden");
   localStorage.setItem("formValue", JSON.stringify(formValue));
   createUsers(formValue);
 }
+
 const prevPlayer = localStorage.getItem("lastPlayer");
 let player = prevPlayer === "X" ? "O" : "X";
 console.log("next player is ", player);
@@ -49,6 +49,7 @@ function createUsers(data) {
   const markUp = `  
   <div class="users"><p class="first active" data-x>${data.user1} </p><p>used X</p></div>
   <div class="users"><p class="second" data-o>${data.user2} </p><p>used O</p></div>
+   <button class="btn-cross fill" type="button">Restart</button>
   `;
   playersDiv.innerHTML = markUp;
 }
@@ -60,7 +61,6 @@ if (playerX.length) {
   const usersFromLocalStorage = JSON.parse(localStorage.getItem("formValue"));
   createUsers(usersFromLocalStorage);
   containerEl.classList.remove("hidden");
-  resetBtnEl.classList.remove("hidden");
   formEl.classList.add("hidden");
 
   const children = [...boxEl.children].forEach((child) => {
@@ -76,7 +76,7 @@ const onBoxElClick = (e) => {
   if (e.target.textContent) {
     return;
   }
-
+  const resetBtnEl = document.querySelector(".btn-cross");
   e.target.textContent = player;
 
   const position = e.target.dataset.id;
@@ -117,6 +117,7 @@ const onBoxElClick = (e) => {
       resetGame();
     }, 500);
   }
+  resetBtnEl.addEventListener("click", onResetBtnClick);
 };
 
 function isWiner(arr) {
@@ -136,7 +137,6 @@ function resetGame(selector) {
 function onResetBtnClick() {
   localStorage.clear();
   containerEl.classList.add("hidden");
-  resetBtnEl.classList.add("hidden");
   formEl.classList.remove("hidden");
   formEl.elements.user1.value = "";
   formEl.elements.user2.value = "";
@@ -147,5 +147,5 @@ function onResetBtnClick() {
 }
 
 boxEl.addEventListener("click", onBoxElClick);
-resetBtnEl.addEventListener("click", onResetBtnClick);
+
 formEl.addEventListener("submit", onformEl);
