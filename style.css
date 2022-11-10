@@ -142,6 +142,7 @@ p {
 
 .user-form {
   text-align: center;
+  padding: 10px;
 }
 
 .form-title {
@@ -207,4 +208,26 @@ p {
 .fill:hover::after {
   top: 0px;
   left: 0px;
+}
+@media screen and (min-width: 320px) and (max-width: 425px) {
+  .label-form {
+    max-width: 300px;
+  }
+  .players {
+    flex-direction: column-reverse;
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  .users {
+    flex-direction: column;
+    gap: 8px;
+    font-size: 15px;
+  }
+  .first,
+  .second,
+  .active,
+  .fill {
+    font-size: 15px;
+  }
 }
