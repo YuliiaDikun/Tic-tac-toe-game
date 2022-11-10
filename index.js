@@ -1,5 +1,5 @@
 const boxEl = document.querySelector(".content");
-const containerEl = document.querySelector(".container");
+const containerEl = document.querySelector(".game-container");
 const resetBtnEl = document.querySelector(".btn-cross");
 const formEl = document.querySelector(".user-form");
 const playersDiv = document.querySelector(".players");
@@ -14,6 +14,7 @@ function onformEl(e) {
     user2: formEl.elements.user2.value,
   };
   containerEl.classList.remove("hidden");
+  resetBtnEl.classList.remove("hidden");
   formEl.classList.add("hidden");
   localStorage.setItem("formValue", JSON.stringify(formValue));
   createUsers(formValue);
@@ -59,6 +60,7 @@ if (playerX.length) {
   const usersFromLocalStorage = JSON.parse(localStorage.getItem("formValue"));
   createUsers(usersFromLocalStorage);
   containerEl.classList.remove("hidden");
+  resetBtnEl.classList.remove("hidden");
   formEl.classList.add("hidden");
 
   const children = [...boxEl.children].forEach((child) => {
@@ -134,6 +136,7 @@ function resetGame(selector) {
 function onResetBtnClick() {
   localStorage.clear();
   containerEl.classList.add("hidden");
+  resetBtnEl.classList.add("hidden");
   formEl.classList.remove("hidden");
   formEl.elements.user1.value = "";
   formEl.elements.user2.value = "";

@@ -4,26 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./style.css" />
     <title>Cross game</title>
   </head>
-  <body>
-    <h1>Cross game!</h1>
-    <button class="btn-cross" type="button">Restart</button>
-    <div class="container hidden">
-      <div class="players"></div>
-      <div class="content"></div>
-    </div>
-    <div class="user-data">
-      <form class="user-form">
-        <label for="">
-          <input name="user1" type="text" placeholder="user1" />
-        </label>
-        <label for="">
-          <input name="user2" type="text" placeholder="user2" />
-        </label>
-        <button type="submit">SUBMIT</button>
-      </form>
+  <body class="page">
+    <div class="container">
+      <h1 class="title">Welcome to "Cross game"!</h1>
+      <button class="btn-cross hidden" type="button">Restart</button>
+      <div class="game-container hidden">
+        <div class="players"></div>
+        <div class="content"></div>
+      </div>
+      <div class="user-data">
+        <form class="user-form">
+          <p class="form-title">Please enter a players!</p>
+          <label class="label-form">
+            First player
+            <input
+              name="user1"
+              type="text"
+              placeholder="First player"
+              class="input-form"
+            />
+          </label>
+          <label class="label-form">
+            Second player
+            <input
+              name="user2"
+              type="text"
+              placeholder="First player"
+              class="input-form"
+            />
+          </label>
+          <button class="fill" type="submit">SUBMIT</button>
+        </form>
+      </div>
     </div>
     <script src="./index.js"></script>
     <!-- <script src="./git.js"></script> -->
