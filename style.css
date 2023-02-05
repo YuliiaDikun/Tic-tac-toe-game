@@ -84,6 +84,7 @@ p {
 
 .users {
   display: flex;
+  flex-wrap: wrap;
   font-size: 25px;
   gap: 25px;
   font-weight: 500;
@@ -213,8 +214,7 @@ p {
   .label-form {
     max-width: 300px;
   }
-  .players {
-    flex-direction: column-reverse;
+  .players {    
     gap: 10px;
     margin-bottom: 20px;
     margin-top: 10px;
